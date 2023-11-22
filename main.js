@@ -7,3 +7,9 @@ const li = document.createElement("li");
 li.textContent = "Primeiro";
 console.log(li);
 olItens.append(li);
+
+li2.textContent = "Segundo"
+olItens.appendChild=(li2);
+
+li3.textContent = "Segundo"
+olItens.appendChild=(li3);
