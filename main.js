@@ -1,4 +1,4 @@
-import { getLista } from "./src/lista.js";
+import { adicionaNaLista, getLista } from "./src/lista.js";
 
 const pEntrada = document.querySelector("#entrada");
 const btnAdicioanar = document.querySelector("#adicioanar");
@@ -6,9 +6,18 @@ const btnlimpar = document.querySelector("#limpar");
 const olItens = document.querySelector("#itens");
 
 atualizarListaOdenada();
+btnAdicioanar.addEventListener('click',adicionaItemDaEntrada);
+
+function adicionaItemDaEntrada(){
+    const valor=pEntrada.textContent;
+    adicionaNaLista(valor);
+    pEntrada.textContent = "";
+    atualizarListaOdenada();
+}
    
 function atualizarListaOdenada(){
     const lista = getLista();
+    olItens.innerHTML = "";
     for(let i=0; i<lista.length; i++){
         adicionaElemetoNaListaOrdenada(lista[i]);
     }
