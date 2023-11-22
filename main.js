@@ -1,30 +1,39 @@
-import { adicionaNaLista, getLista } from "./src/lista.js";
+import { adicionaNaLista, getLista, limpaLista } from "./src/lista.js";
 
 const pEntrada = document.querySelector("#entrada");
-const btnAdicioanar = document.querySelector("#adicioanar");
-const btnlimpar = document.querySelector("#limpar");
-const olItens = document.querySelector("#itens");
+const btnAdicionar = document.querySelector("#adicionar");
+const btnLimpar = document.querySelector("#limpar");
+const olnItens = document.querySelector("#itens");
 
-atualizarListaOdenada();
-btnAdicioanar.addEventListener('click',adicionaItemDaEntrada);
+atualizarListaOrdenada();
+btnAdicionar.addEventListener('click', adicionaItemEntrada);
 
-function adicionaItemDaEntrada(){
-    const valor=pEntrada.textContent;
+btnLimpar.addEventListener('click', limparListaOrdenada)
+
+function limparListaOrdenada(){
+    limpaLista();
+    atualizarListaOrdenada();
+}
+
+function adicionaItemEntrada(){
+    const valor = pEntrada.textContent;
     adicionaNaLista(valor);
     pEntrada.textContent = "";
-    atualizarListaOdenada();
+    atualizarListaOrdenada();
 }
-   
-function atualizarListaOdenada(){
-    const lista = getLista();
-    olItens.innerHTML = "";
-    for(let i=0; i<lista.length; i++){
-        adicionaElemetoNaListaOrdenada(lista[i]);
+
+function atualizarListaOrdenada(){
+    const Lista = getLista();
+    olnItens.innerHTML = "";
+    for(let i=0; i<Lista.length; i++){
+        adicionaElementoNaListaOrdenada(Lista[i]);
     }
 }
 
-function adicionaElemetoNaListaOrdenada(texto){
+function adicionaElementoNaListaOrdenada(texto){
     const li = document.createElement("li");
     li.textContent = texto;
-    olItens.appendChild(li);
+    olnItens.appendChild(li);
 }
+
+
