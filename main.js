@@ -3,12 +3,11 @@ const btnAdicioanar = document.querySelector("#adicioanar");
 const btnlimpar = document.querySelector("#limpar");
 const olItens = document.querySelector("#itens");
 
-adicionaElemetoNaLista();
-adicionaElemetoNaLista();
-adicionaElemetoNaLista();
+adicionaElemetoNaLista("Primeiro");
+adicionaElemetoNaLista("Segundo");
+adicionaElemetoNaLista("Terceiro");
 
-
-function dicionaElemetoNaLista(texto){
+function adicionaElemetoNaLista(texto){
     const li = document.createElement("li");
     li.textContent = "Primeiro";
     olItens.appendChild(li);
